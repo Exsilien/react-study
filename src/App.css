@@ -20,22 +20,8 @@ body {
   "N C";
 
 }
-.header {
-  background-color: lightgreen;
-  grid-area: H;
-}
-.nav  {
-  background-color: rosybrown;
-  grid-area: N;
-  padding: 10px;
-}
-.content {
-  grid-area: C;
-  background-color: deepskyblue;
-}
-ul a{
-  list-style-type: none;
-  color: black;
-  text-decoration: none;
-}
+
+
+
+
 
