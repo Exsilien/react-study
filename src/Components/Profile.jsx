@@ -1,10 +1,10 @@
-import './Profile.css';
+import s from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <div className='content'>
+        <div className={s.content}>
             <div>
-                <img src="https://www.1zoom.ru/big2/994/260356-svetik.jpg" alt="#" className="wallpaper"/>
+                <img src="https://www.1zoom.ru/big2/994/260356-svetik.jpg" alt="#" className={s.wallpaper}/>
             </div>
             <div>
                 ava + discrp
