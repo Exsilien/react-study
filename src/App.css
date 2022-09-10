@@ -8,7 +8,6 @@ body {
   font-size: 40px;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 .app-wrapper {
