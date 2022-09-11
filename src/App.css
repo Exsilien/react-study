@@ -8,17 +8,23 @@ body {
   font-size: 40px;
   width: 100%;
   min-height: 100vh;
+  padding: 0px 30px;
 }
 
 .app-wrapper {
   display: grid;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-template-areas:
   "H H"
   "N C";
 
 }
+.app-wrapper__content {
+  grid-area: C;
+  background-color: deepskyblue;
+}
+
 
 
 
