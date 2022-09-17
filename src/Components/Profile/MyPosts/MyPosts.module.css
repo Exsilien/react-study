@@ -2,5 +2,12 @@ textarea {
     font-size: 40px;
 }
 .posts {
-
+    margin-top: 10px;
 }
+.myposts {
+    padding: 10px;
+}
+button {
+    font-size: 40px;
+}
+

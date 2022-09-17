@@ -1,4 +1,5 @@
 import s from './Post.module.css';
+import Posts from './../MyPosts';
 
 const Post = (props) => {
     return <div className={s.item}>

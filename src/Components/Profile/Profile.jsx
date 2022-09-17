@@ -1,16 +1,12 @@
 import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
-            <div>
-                <img src="https://www.1zoom.ru/big2/994/260356-svetik.jpg" alt="#" className={s.wallpaper}/>
-            </div>
-            <div>
-                ava + discrp
-            </div>
-            <MyPosts/>
+            <ProfileInfo/>
+            <MyPosts profilePage={props.state} addNewPost={props.addNewPost} updateNewPostText={ props.updateNewPostText }/>
         </div>
     );
 }

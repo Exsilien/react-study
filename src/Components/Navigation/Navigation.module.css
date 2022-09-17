@@ -1,12 +1,10 @@
-.nav  {
+.Navigation  {
     background-color: rosybrown;
     grid-area: N;
     padding: 20px;
+    text-transform: capitalize;
 }
 
-.nav ul {
-    list-style: none;
-}
 .item {
     text-decoration: none;
     color: antiquewhite;
@@ -16,4 +14,22 @@
     color: mediumpurple;
     text-decoration: none;
     font-size: 30px;
+}
+.friend {
+
+}
+.friendName {
+    font-size: 30px;
+
+}
+.friendList {
+    display: inline-flex;
+    margin-top: 30px;
+    gap: 40px;
+
+}
+.friendList img{
+    border-radius: 50%;
+    width: 8vh;
+    height: 8vh;
 }
