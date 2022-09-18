@@ -1,37 +1,8 @@
-let reRenderEntirePage = () => {
-};
-
-export let updateMessageBoxText = (text) => {
-    state.dialogsPage.messageBoxTextState = text;
-    reRenderEntirePage(state);
-};
-export let addNewPost = () => {
-    let post = {
-        message: state.profilePage.postState,
-        likes_counter: 0,
-    };
-    state.profilePage.posts.push(post);
-    state.profilePage.postState = "";
-    reRenderEntirePage(state);
-};
-export let updateNewPostText = (text) => {
-    state.profilePage.postState = text;
-    reRenderEntirePage(state);
-};
-export let addNewMessage = () => {
-    let msg = {id: 5, message: state.dialogsPage.messageBoxTextState};
-    state.dialogsPage.chats.push(msg);
-    state.dialogsPage.messageBoxTextState = "";
-    reRenderEntirePage(state);
-};
-export let subscribe = (observer) => {
-    reRenderEntirePage = observer;
-};
-
-
-export default state;
-
-let store = {
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SEND_NEW_MESSAGE = "SEND-NEW-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+export let store = {
     _state: {
         profilePage: {
             posts: [
@@ -78,13 +49,49 @@ let store = {
 
 
     },
+    _callSubscriber() {
+        this.reRenderEntirePage(this.getState());
+    },
     getState() {
         return this._state;
     },
-    updateMessageBoxText(text) {
-        this.getState().dialogsPage.messageBoxTextState = text;
-        reRenderEntirePage(this.getState());
+    subscribe (observer) {
+        this.reRenderEntirePage = observer;
     },
+    reRenderEntirePage() {},
+    dispatch(action) {
+        if(action.type === ADD_POST) {
+            let post = {
+                message: this._state.profilePage.postState,
+                likes_counter: 0,
+            };
+            this._state.profilePage.posts.push(post);
+            this._state.profilePage.postState = "";
+            this._callSubscriber();
+        }
+        else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.postState = action.text;
+            this._callSubscriber();
+        }
+        else if (action.type === SEND_NEW_MESSAGE) {
+                let msg = {id: 5, message: this._state.dialogsPage.messageBoxTextState};
+                this._state.dialogsPage.chats.push(msg);
+                this._state.dialogsPage.messageBoxTextState = "";
+                this._callSubscriber();
+        }
+        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this.getState().dialogsPage.messageBoxTextState = action.text;
+            this._callSubscriber();
+        }
+    }
+};
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text});
+
+export const sendMessageActionCreator = () => ({type: SEND_NEW_MESSAGE});
+
+export const updateMessageBoxTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, text: text});
 
 
-}

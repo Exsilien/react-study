@@ -1,19 +1,19 @@
 import Post from './Post/Post';
 import s from './MyPosts.module.css';
 import React from "react";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+
+
 
 
 const MyPosts = (props) => {
 
-    let newPostElement = React.createRef();
-
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addNewPost();
+        props.dispatch(addPostActionCreator());
     }
-    let onChangePost = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+    let onChangePost = (e) => {
+        let text = e.target.value;
+        props.dispatch(updateNewPostTextActionCreator(text));
     }
 
     let PostElements = props.profilePage.posts
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
         <div className={s.myposts}>
             <h3>MyPosts</h3>
             <div>
-                <textarea ref={newPostElement} onChange={onChangePost} value={props.profilePage.postState}></textarea>
+                <textarea onChange={onChangePost} value={props.profilePage.postState}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>

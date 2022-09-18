@@ -1,5 +1,6 @@
 import s from './chat.module.css';
 import React from "react";
+import {sendMessageActionCreator, updateMessageBoxTextActionCreator} from "../../../redux/state";
 
 const Message = (props) => {
     return (
@@ -11,15 +12,15 @@ const Message = (props) => {
 
 const Chat = (props) => {
 
-    let messagebox = React.createRef();
 
     let sendMessage = () => {
-        props.addNewMessage();
+
+        props.dispatch(sendMessageActionCreator());
     };
 
-    let updateMessageBoxText = () => {
-        let text  = messagebox.current.value;
-        props.updateMessageBoxText(text);
+    let updateMessageBoxText = (e) => {
+        let text  = e.target.value;
+        props.dispatch(updateMessageBoxTextActionCreator(text));
     }
 
     let ChatElements = props.dialogsPage.chats
@@ -28,7 +29,7 @@ const Chat = (props) => {
     return (
         <div className={s.messages}>
             {ChatElements}
-            <textarea ref={messagebox} onChange={updateMessageBoxText} value={props.dialogsPage.messageBoxTextState}></textarea>
+            <textarea onChange={updateMessageBoxText} value={props.dialogsPage.messageBoxTextState}></textarea>
             <button onClick={sendMessage}>Send message</button>
         </div>
     );
