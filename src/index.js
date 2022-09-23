@@ -3,7 +3,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import {store} from './redux/store';
+import store from "./redux/redux-store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,7 +16,10 @@ const reRenderEntirePage = (state) => {
 };
 reRenderEntirePage(store.getState());
 
-store.subscribe(reRenderEntirePage);
+store.subscribe(() => {
+    let state = store.getState();
+    reRenderEntirePage(state);
+});
 
 
 // If you want to start measuring performance in your app, pass a function
