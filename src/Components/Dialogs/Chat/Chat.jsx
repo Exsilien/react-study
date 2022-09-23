@@ -1,6 +1,6 @@
 import s from './chat.module.css';
 import React from "react";
-import {sendMessageActionCreator, updateMessageBoxTextActionCreator} from "../../../redux/state";
+import {sendMessageActionCreator, updateMessageBoxTextActionCreator} from "../../../redux/dialogReducer";
 
 const Message = (props) => {
     return (
@@ -14,7 +14,6 @@ const Chat = (props) => {
 
 
     let sendMessage = () => {
-
         props.dispatch(sendMessageActionCreator());
     };
 
