@@ -1,6 +1,5 @@
 import s from './chat.module.css';
 import React from "react";
-import {sendMessageActionCreator, updateMessageBoxTextActionCreator} from "../../../redux/dialogReducer";
 
 const Message = (props) => {
     return (
@@ -14,21 +13,21 @@ const Chat = (props) => {
 
 
     let sendMessage = () => {
-        props.dispatch(sendMessageActionCreator());
+        props.sendMessage();
     };
 
     let updateMessageBoxText = (e) => {
         let text  = e.target.value;
-        props.dispatch(updateMessageBoxTextActionCreator(text));
+        props.updateMessageBoxText(text);
     }
 
-    let ChatElements = props.dialogsPage.chats
+    let ChatElements = props.chats
         .map(m => <Message message={m.message}/>);
 
     return (
         <div className={s.messages}>
             {ChatElements}
-            <textarea onChange={updateMessageBoxText} value={props.dialogsPage.messageBoxTextState}></textarea>
+            <textarea onChange={updateMessageBoxText} value={props.value}></textarea>
             <button onClick={sendMessage}>Send message</button>
         </div>
     );
