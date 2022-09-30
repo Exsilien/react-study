@@ -1,0 +1,45 @@
+.ava {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-top: 30px;
+    gap: 30px;
+
+}
+
+.avaButton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.userInfo {
+    display: flex;
+    border: 4px solid dimgray;
+    width: 900px;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+}
+.name {
+    margin-top: 30px;
+    flex: 1;
+}
+.status {
+}
+.location {
+    margin-left: auto;
+    align-self: center;
+}
+.button {
+    background-color: ghostwhite;
+    border: 3px solid greenyellow;
+}

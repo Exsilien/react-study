@@ -5,7 +5,7 @@ const userPhoto = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ft
 const Users = (props) => {
 
         if(props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            axios.get("https://social-network.samuraijs.com/api/1.0/users?count=2")
                 .then(response => props.setUsers(response.data.items));
         }
 
@@ -13,17 +13,17 @@ const Users = (props) => {
         return (
             <div className={style.user} key={u.id}>
                 <div className={style.avaButton}>
-                    <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="avatar"/>
+                    <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="avatar" className={style.ava}/>
                     {u.followed
-                        ? <button className={style.button} onClick={props.unfollow}>unfollow</button>
-                        : <button className={style.button} onClick={props.follow}>follow</button>}
+                        ? <button className={style.button} onClick={props.unfollow(u.id)}>unfollow</button>
+                        : <button className={style.button} onClick={props.follow(u.id)}>follow</button>}
                 </div>
                 <div className={style.userInfo}>
-                    <div>
-                        <div className={style.name}>u.name</div>
-                        <div className={style.status}>u.status</div>
+                    <div className={style.description}>
+                        <div className={style.name}>{u.name}</div>
+                        <div className={style.status}>{u.status}</div>
                     </div>
-                    <div>
+                    <div className={style.location}>
                         Izluchinsk,<br/>Russia
                     </div>
                 </div>
