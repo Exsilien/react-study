@@ -1,8 +1,8 @@
 .ava {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    margin-left: 15px;
+    margin-left: 30px;
 }
 
 .user {
@@ -23,7 +23,7 @@
 .userInfo {
     display: flex;
     border: 4px solid dimgray;
-    width: 900px;
+    width: 800px;
 }
 .description {
     display: flex;
@@ -42,4 +42,15 @@
 .button {
     background-color: ghostwhite;
     border: 3px solid greenyellow;
+    width: 154px;
+}
+.stylePages{
+    display: flex;
+    gap: 10px;
+}
+.stylePages span {
+    cursor: pointer;
+}
+.pageActive {
+    font-weight: 700;
 }
