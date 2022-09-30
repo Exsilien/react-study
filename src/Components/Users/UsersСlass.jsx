@@ -36,6 +36,7 @@ class UsersClass extends Component {
                     {pages.map(p => {
                         return <span onClick={() => this.onPageChanged(p)} className={p === this.props.currentPage && style.pageActive}>{p}</span>
                     })}
+
                 </div>
                 {this.props.users.map(u => {
                     return (
