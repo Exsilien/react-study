@@ -13,7 +13,7 @@ const NavItem = (props) => {
 const Navigation = (props) => {
     let friendList = useSelector((state) => state.navigationPage.friendList);
     let Friends = friendList.map(f => {
-        return <div className={s.friend}>
+        return <div className={s.friend} key={f.id}>
             <img src={f.avatar} alt="ava"/>
             <div className={s.friendName}>{f.name}</div>
         </div>
@@ -26,6 +26,7 @@ const Navigation = (props) => {
                                 <NavItem name="news"/>
                                 <NavItem name="music"/>
                                 <NavItem name="settings"/>
+                                <NavItem name="users"/>
                             </nav>
                             <div className={s.friendList}>
                                 { Friends }
